@@ -1,0 +1,20 @@
+.Scoreboard {
+}
+.Scoreboard.with-background {
+}
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.ScoreboardReplayBlocker {
+  position: absolute;
+  bottom: 0;
+  right: 67px;
+}
+.ScoreboardMinimap {
+  position: absolute;
+  top: 639px;
+  bottom: unset;
+  left: 0;
+}

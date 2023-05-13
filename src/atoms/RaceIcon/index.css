@@ -1,0 +1,22 @@
+
+.RaceIcon {
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  vertical-align: text-bottom;
+  background: transparent;
+  background-size: contain;
+  position: relative;
+  left: -0.1em;
+  top: -0.05em;
+}
+
+.RaceIcon .icon-inner {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+}
+
+.RaceIcon .icon-label {
+  display: none;
+}

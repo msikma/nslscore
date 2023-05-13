@@ -1,0 +1,363 @@
+.MinimapScoreboard {
+  opacity: 1;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+.App.is-debugging .MinimapScoreboard {
+  pointer-events: all;
+}
+.MinimapScoreboard.isHidden {
+  opacity: 0;
+}
+
+.MinimapScoreboard {
+  --minimapscoreboard-width: 322px;
+  --minimapscoreboard-border: #7a4b17;
+
+  --minimapscoreboard-bg-title: #572b11;
+  --minimapscoreboard-bg-players: #ffd898;
+  --minimapscoreboard-bg-score: #7a4b17;
+  --minimapscoreboard-bg-teams: #180a06;
+  --minimapscoreboard-bg-races: #180a06;
+
+  --minimapscoreboard-fg-title: #ffd898;
+  --minimapscoreboard-fg-players: #180a06;
+  --minimapscoreboard-fg-score: #fff;
+  --minimapscoreboard-fg-teams: #fff;
+  --minimapscoreboard-fg-races: #fff;
+
+  width: var(--minimapscoreboard-width);
+  height: 120px;
+  z-index: 800;
+  position: relative;
+  font-family: "Roboto";
+}
+.MinimapScoreboard .positioner {
+  width: var(--minimapscoreboard-width);
+  height: 92px;
+  position: absolute;
+  top: 0;
+}
+.MinimapScoreboard.use-teams .positioner {
+  height: 120px;
+  top: 0;
+}
+.MinimapScoreboard .inner .teams {
+  display: none;
+}
+.MinimapScoreboard.use-teams .inner .teams {
+  display: flex;
+}
+.MinimapScoreboard .inner {
+  position: absolute;
+  top: 32px;
+  width: var(--minimapscoreboard-width);
+  border: 1px solid var(--minimapscoreboard-border);
+  border-bottom: 0;
+}
+.MinimapScoreboard.no-teams .inner {
+  position: relative;
+  top: 15px;
+}
+.MinimapScoreboard.use-teams .inner {
+  top: 0;
+}
+.MinimapScoreboard.use-standard-position {
+  /*
+  This positions the scoreboard in such a way that it fits perfectly on top of the minimap,
+  if the entire app is overlaid on top of the display at 1080px height.
+  */
+  position: absolute;
+  top: 639px;
+  left: 0;
+}
+.MinimapScoreboard .title {
+  font-family: "Roboto Condensed";
+  text-transform: uppercase;
+  font-size: 16px;
+  line-height: 22px;
+  color: var(--minimapscoreboard-fg-title);
+  background-color: var(--minimapscoreboard-bg-title);
+  padding-left: 6px;
+  padding-right: 6px;
+  display: flex;
+}
+.MinimapScoreboard .title .separator {
+  border-right: 1px solid var(--minimapscoreboard-border);
+  padding: 0 0 0 10px;
+  margin-right: 10px;
+  height: 13px;
+  align-self: center;
+}
+.MinimapScoreboard .title .tournament {
+
+}
+.MinimapScoreboard .title .match,
+.MinimapScoreboard .title .map {
+  position: absolute;
+}
+.MinimapScoreboard .title .match {
+  left: 2px;
+  right: 0;
+  text-align: center;
+}
+.MinimapScoreboard .title .map {
+  text-transform: initial;
+  right: 6px;
+}
+.MinimapScoreboard .scoreboard {
+  font-family: "Roboto Condensed";
+  display: flex;
+  font-size: 21px;
+  line-height: 34px;
+  border-bottom: 1px solid var(--minimapscoreboard-border);
+  color: var(--minimapscoreboard-fg-players);
+  background-color: var(--minimapscoreboard-bg-players);
+}
+.MinimapScoreboard.use-teams .scoreboard {
+  border-bottom: 0;
+}
+.MinimapScoreboard .scoreboard .player.a {
+  text-align: left;
+  padding-left: 6px;
+  /* I don't understand why but whatever. This fixes the off by 1px error. */
+  padding-right: 2px;
+}
+.MinimapScoreboard .scoreboard .player.b {
+  text-align: right;
+  padding-right: 6px;
+}
+.MinimapScoreboard .scoreboard .player {
+  flex: 1 0;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  overflow: hidden;
+  position: relative;
+}
+.MinimapScoreboard .scoreboard .player span {
+  position: absolute;
+  font-weight: 600;
+}
+.MinimapScoreboard .scoreboard .player.a span {
+  left: 6px;
+}
+.MinimapScoreboard .scoreboard .player.b span {
+  right: 6px;
+}
+.MinimapScoreboard .scoreboard .player.condensed.a span {
+  transform-origin: top left;
+}
+.MinimapScoreboard .scoreboard .player.condensed.b span {
+  transform-origin: top right;
+}
+.MinimapScoreboard .scoreboard .player.condensed span {
+  transform: scale(0.8, 1);
+}
+.MinimapScoreboard .scoreboard .points {
+  flex: 0 1 60px;
+  font-size: 28px;
+}
+.MinimapScoreboard .scoreboard .points {
+  display: flex;
+}
+.MinimapScoreboard .scoreboard .points .score {
+  flex: 0 0 50%;
+  color: var(--minimapscoreboard-fg-score);
+  background-color: var(--minimapscoreboard-bg-score);
+  border-top: 1px solid var(--minimapscoreboard-bg-players);
+  border-bottom: 1px solid var(--minimapscoreboard-bg-players);
+  text-align: center;
+}
+.MinimapScoreboard .scoreboard .points .score.div {
+  position: absolute;
+  width: 20px;
+  text-align: center;
+  display: block;
+  left: calc(50% - 9px);
+  font-weight: normal !important;
+}
+.MinimapScoreboard .scoreboard .points .score.a {
+  border-right: 1px solid var(--minimapscoreboard-bg-players);
+}
+.MinimapScoreboard .scoreboard .points .score.b {
+  padding-left: 1px;
+}
+.MinimapScoreboard .teams {
+  display: flex;
+  color: var(--minimapscoreboard-fg-teams);
+  background-color: var(--minimapscoreboard-bg-teams);
+  border-bottom: 1px solid var(--minimapscoreboard-border);
+}
+.MinimapScoreboard .teams .team {
+  font-size: 17px;
+  line-height: 32px;
+}
+.MinimapScoreboard .teams .team {
+  flex: 1 0;
+}
+.MinimapScoreboard .teams .team.a {
+  text-align: left;
+  padding-left: 6px;
+  padding-right: 1px;
+}
+.MinimapScoreboard .teams .team.b {
+  text-align: right;
+  padding-right: 6px;
+  border-left: 1px solid var(--minimapscoreboard-border);
+}
+.MinimapScoreboard .races {
+  display: flex;
+  color: var(--minimapscoreboard-fg-races);
+}
+.MinimapScoreboard.no-teams .races {
+  position: relative;
+  top: 17px;
+}
+.MinimapScoreboard .races .race {
+  font-size: 21px;
+  line-height: 34px;
+  flex: 1 0;
+  position: relative;
+}
+.MinimapScoreboard .races .race svg {
+  width: 95px;
+  position: absolute;
+  z-index: 10;
+}
+.MinimapScoreboard .races .race.b svg {
+  width: 100px;
+}
+.MinimapScoreboard .races .race svg .polygon-bg {
+  fill: var(--minimapscoreboard-bg-races);
+}
+.MinimapScoreboard .races .race svg .polygon-border {
+  fill: var(--minimapscoreboard-border);
+}
+.MinimapScoreboard .races .race span.block {
+  width: 82px;
+  display: block;
+  text-align: center;
+  position: relative;
+  z-index: 12;
+  font-weight: 600;
+  line-height: 32px;
+}
+.MinimapScoreboard .races .race span.block > span:not(.race) {
+  display: none;
+}
+.MinimapScoreboard .races .race.a {
+}
+.MinimapScoreboard .races .race.a svg {
+  top: -1px;
+  left: -1px;
+}
+.MinimapScoreboard .races .race.a span.block {
+  margin-right: auto;
+  margin-left: -1px;
+}
+.MinimapScoreboard .races .race.b {
+}
+.MinimapScoreboard .races .race.b svg {
+  top: -1px;
+  right: -1px;
+}
+.MinimapScoreboard .races .race.b span.block {
+  margin-left: auto;
+  margin-right: -1px;
+}
+
+
+
+.MinimapScoreboard.style-testing {
+  --minimapscoreboard-border: red;
+
+  --minimapscoreboard-bg-title: blue;
+  --minimapscoreboard-bg-players: yellow;
+  --minimapscoreboard-bg-score: red;
+  --minimapscoreboard-bg-teams: green;
+  --minimapscoreboard-bg-races: green;
+
+  --minimapscoreboard-fg-title: yellow;
+  --minimapscoreboard-fg-players: red;
+  --minimapscoreboard-fg-score: #fff;
+  --minimapscoreboard-fg-teams: #fff;
+  --minimapscoreboard-fg-races: #fff;
+}
+
+.MinimapScoreboard.style-black {
+  --minimapscoreboard-border: black;
+
+  --minimapscoreboard-bg-title: black;
+  --minimapscoreboard-bg-players: black;
+  --minimapscoreboard-bg-score: black;
+  --minimapscoreboard-bg-teams: black;
+  --minimapscoreboard-bg-races: black;
+
+  --minimapscoreboard-fg-title: black;
+  --minimapscoreboard-fg-players: black;
+  --minimapscoreboard-fg-score: black;
+  --minimapscoreboard-fg-teams: black;
+  --minimapscoreboard-fg-races: black;
+
+  text-shadow: 0 1px 3px black, 1px 2px 1px black, -1px 2px 1px black;
+}
+.MinimapScoreboard.style-black img {
+  display: none;
+}
+.MinimapScoreboard.style-black .races .race .RaceIcon {
+  display: none;
+}
+
+.MinimapScoreboard.style-nsl6 {
+  --minimapscoreboard-border: transparent;
+
+  --minimapscoreboard-bg-title: transparent;
+  --minimapscoreboard-bg-players: transparent;
+  --minimapscoreboard-bg-score: transparent;
+  --minimapscoreboard-bg-teams: transparent;
+  --minimapscoreboard-bg-races: transparent;
+
+  --minimapscoreboard-fg-title: white;
+  --minimapscoreboard-fg-players: white;
+  --minimapscoreboard-fg-score: #fff;
+  --minimapscoreboard-fg-teams: #fff;
+  --minimapscoreboard-fg-races: #fff;
+
+  text-shadow: 0 1px 3px black, 1px 2px 1px black, -1px 2px 1px black;
+}
+.MinimapScoreboard.style-nsl6 .backdrop {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 322px;
+  height: auto;
+  z-index: -1;
+  display: none;
+}
+.MinimapScoreboard.style-nsl6 .backdrop.no-teams {
+  top: 15px;
+}
+.MinimapScoreboard.style-nsl6.use-teams .backdrop.teams {
+  display: block;
+}
+.MinimapScoreboard.style-nsl6.no-teams .backdrop.no-teams {
+  display: block;
+}
+.MinimapScoreboard.style-nsl6 .title {
+  position: relative;
+  top: -1px;
+}
+.MinimapScoreboard.style-nsl6 .title .match {
+  font-weight: bold;
+}
+.MinimapScoreboard.style-nsl6 .scoreboard .points .score {
+  font-weight: bold;
+}
+.MinimapScoreboard.style-nsl6 .races .RaceIcon {
+  filter: drop-shadow(0px 1px 1px black) drop-shadow(0px 0px 1px black);
+  position: relative;
+  top: -2px;
+}
+.MinimapScoreboard.style-nsl6.use-teams .inner .teams {
+  font-family: "Roboto Condensed";
+}

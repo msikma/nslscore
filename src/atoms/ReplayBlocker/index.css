@@ -1,0 +1,13 @@
+.ReplayBlocker {
+  opacity: 1;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+.ReplayBlocker img {
+  width: 329px;
+  height: 315px;
+  display: block;
+}
+.ReplayBlocker.isHidden {
+  opacity: 0;
+}

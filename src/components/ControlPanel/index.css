@@ -1,0 +1,275 @@
+.ControlPanel {
+  padding: 0.5em;
+  display: grid;
+  gap: 0.5em;
+  grid-template-columns: 1fr 1fr;
+  height: 24em;
+}
+.ControlPanel label {
+  line-height: 1.5em;
+  padding: 0.1em 0.5em 0.1em 0.1em;
+  text-align: right;
+  width: 4em;
+}
+.ControlPanel input {
+  font-size: 1em;
+  padding: 0.1em;
+  width: 10em;
+}
+.ControlPanel button {
+  font-weight: bold;
+  border-radius: 0;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 1em;
+  padding: 0.2em 0.5em;
+}
+.ControlPanel .container {
+  display: flex;
+}
+.ControlPanel .Row {
+  display: flex;
+}
+.FormBox {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5em;
+  gap: 0.2em;
+  background: #eee;
+  border: 0.25em solid gray;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+
+.Players {
+  display: grid;
+  gap: 0.5em;
+  grid-template-columns: 1fr 1fr;
+}
+
+.PlayerBox {
+  text-align: center;
+}
+.PlayerBox.race-t {
+  background: var(--race-t-light);
+  border-color: var(--race-t);
+}
+.PlayerBox.race-p {
+  background: var(--race-p-light);
+  border-color: var(--race-p);
+}
+.PlayerBox.race-z {
+  background: var(--race-z-light);
+  border-color: var(--race-z);
+}
+.PlayerBox.race-unknown {
+  background: var(--race-unknown-light);
+  border-color: var(--race-unknown);
+}
+.PlayerBox.race-random {
+  background: var(--race-random-light);
+  border-color: var(--race-random);
+}
+
+
+.LabelBox {
+  display: flex;
+  justify-content: left;
+}
+.LabelBox.top {
+  position: relative;
+}
+.LabelBox.top label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 0.7em;
+  line-height: 1.3em;
+  font-weight: bold;
+  padding: 0;
+  text-align: left;
+  width: auto;
+}
+.LabelBox.top input,
+.LabelBox.top button {
+  margin-top: 1em;
+}
+
+.cols {
+  display: flex;
+}
+.cols > div {
+  flex-basis: 50%;
+  justify-content: left;
+  align-items: baseline;
+}
+.rows {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.rows > div {
+  display: flex;
+  justify-content: left;
+}
+.tournament-picker {
+  position: absolute !important;
+  top: 0;
+  right: 0;
+}
+
+.maps {
+  display: flex;
+  flex-wrap: wrap;
+}
+.mapWrapper {
+  position: relative;
+}
+.mapWrapper .map {
+  width: 100%;
+  margin: 0.25em 0 0 0 !important;
+}
+.mapWrapper > span {
+  position: absolute;
+  background-color: white;
+  border: 0.1em solid black;
+  border-radius: 100px;
+  width: 1.25em;
+  height: 1.25em;
+  font-size: 1em;
+  top: -0.1em;
+  right: -0.25em;
+  z-index: 50;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16'><path fill='currentColor' d='M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l3.22 3.22a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-3.22 3.22a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06Z'></path></svg>");
+}
+.mapWrapper > span:hover {
+  background-color: #ccc;
+}
+.mapWrapper.active .map {
+  background: #666;
+  color: white;
+}
+
+button.active {
+  background: #666;
+  color: white;
+}
+
+
+.BoxLabel {
+  font-weight: bold;
+  display: flex;
+  justify-content: left;
+}
+.BoxLabel .container {
+  width: 14em;
+  padding-left: 4em;
+  text-align: left;
+}
+.BoxLabel.center .container {
+  width: 100%;
+  display: block;
+  padding: 0;
+  text-align: center;
+}
+.BoxLabel .container p {
+  font-size: 0.8em;
+  margin: 0;
+}
+
+.RaceSelector {
+  display: flex;
+  justify-content: left;
+}
+.RaceSelector .container {
+  width: 10em;
+  display: flex;
+  padding-left: 0;
+}
+.RaceSelector .container > div:first-child {
+  margin-right: 0.25em;
+}
+.RaceSelector button {
+  font-weight: bold;
+  border-radius: 0;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 1em;
+  padding: 0.2em 0.5em;
+}
+.RaceSelector button.active {
+  color: white;
+}
+.RaceSelector button:first-child {
+  border-right: 0;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+.RaceSelector button:last-child {
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+.RaceSelector button:last-child:not(:nth-child(2)) {
+  border-left: 0;
+}
+
+.RaceSelector .race-t {
+  background: var(--race-t-light);
+}
+.RaceSelector .race-p {
+  background: var(--race-p-light);
+}
+.RaceSelector .race-z {
+  background: var(--race-z-light);
+}
+.RaceSelector .race-random {
+  background: var(--race-random-light);
+}
+.RaceSelector .race-unknown {
+  background: var(--race-unknown-light);
+}
+
+.RaceSelector .race-t.active {
+  background: var(--race-t);
+}
+.RaceSelector .race-p.active {
+  background: var(--race-p);
+}
+.RaceSelector .race-z.active {
+  background: var(--race-z);
+}
+.RaceSelector .race-random.active {
+  background: var(--race-random);
+}
+.RaceSelector .race-unknown.active {
+  background: var(--race-unknown);
+}
+
+.NumberInput {
+  display: flex;
+}
+.NumberInput > div {
+  display: flex;
+}
+
+.NumberInput input {
+  width: 4em;
+  margin: 0 -1px;
+  border-radius: 0;
+  border: 1px solid gray;
+}
+
+.NumberInput button {
+  width: 1.7em;
+}
+.NumberInput button:first-child {
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+.NumberInput button:last-child {
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}

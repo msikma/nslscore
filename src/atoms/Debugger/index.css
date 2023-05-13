@@ -1,0 +1,14 @@
+.Debugger {
+  border: 0.25em solid gray;
+  border-radius: 0.5rem;
+  background: #eee;
+  margin: 0.5em;
+  padding: 0.5em;
+  margin-top: 0;
+}
+.Debugger pre {
+  margin: 0;
+}
+.Debugger.isHidden {
+  display: none;
+}

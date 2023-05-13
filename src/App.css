@@ -1,0 +1,30 @@
+#root {
+  font-family: 'Roboto';
+}
+
+.AppItem {
+  position: absolute;
+  inset: 0;
+}
+
+.AppControlPanel {
+  bottom: unset;
+  width: 1920px;
+  height: 460px;
+  overflow: hidden;
+}
+
+.AppScoreboard {
+  top: 460px;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+}
+.AppDebugger {
+  top: 560px;
+  width: min-content;
+  height: auto;
+  left: unset;
+  right: calc(100% - 1920px);
+  bottom: unset;
+}
