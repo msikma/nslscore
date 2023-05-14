@@ -23,6 +23,7 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
       scoreboard: true,
       replayBlocker: false
     },
+    replayBlockerType: null,
     isDebugging: false,
     mapName: '',
     knownMaps: [],
@@ -47,6 +48,7 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
         scoreboard: true,
         replayBlocker: true
       },
+      replayBlockerType: 'nsl',
       isDebugging: false,
       mapName: 'Map name',
       knownMaps: ['Retro', 'Paradiso', 'Neverland', 'Sand Storm', 'Tempest', 'Heartbreak Ridge', '76', 'Dark Origin', 'Lights Out', 'Rush Hour Neo'],
@@ -180,6 +182,13 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
     })
   }
 
+  const setReplayBlockerType = type => {
+    setAppState({
+      ...appState,
+      replayBlockerType: type
+    })
+  }
+
   return [
     appState,
     {
@@ -191,6 +200,7 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
       setKnownMaps,
       setDebugging,
       setVisibility,
+      setReplayBlockerType,
       setPlayerName,
       setPlayerTeam,
       setPlayerRace,

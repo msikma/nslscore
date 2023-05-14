@@ -10,12 +10,13 @@ function Scoreboard({appState, className = ''}) {
   const hasVisibleScoreboard = appState.visibility.scoreboard
   const hasVisibleReplayBlocker = appState.visibility.replayBlocker
   const hasBackground = appState.isDebugging
+  const replayBlockerType = appState.replayBlockerType
 
   return (
     <div className={`Scoreboard ${className}`}>
       {hasBackground && <img src={imgBackground} width="1920" height="1080" className="background" />}
       <MinimapScoreboard appState={appState} isVisible={hasVisibleScoreboard} className="ScoreboardMinimap" />
-      <ReplayBlocker isVisible={hasVisibleReplayBlocker} className="ScoreboardReplayBlocker" />
+      <ReplayBlocker isVisible={hasVisibleReplayBlocker} type={replayBlockerType} className="ScoreboardReplayBlocker" />
     </div>
   )
 }

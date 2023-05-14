@@ -60,12 +60,14 @@ function GeneralBox(data) {
     mapName,
     visibility,
     tournamentName,
+    replayBlockerType,
 
     callbackAddMap,
     callbackDebugging,
     callbackMapName,
     callbackRemoveMap,
     callbackResetScores,
+    callbackSetReplayBlockerType,
     callbackToggleReplayBlocker,
     callbackToggleScoreboard,
     callbackTournamentName
@@ -107,6 +109,7 @@ function GeneralBox(data) {
         </div>
         <div className="LabelBox top">
           <button onClick={callbackToggleReplayBlocker} className={visibility.replayBlocker ? 'active' : ''}>Toggle replay blocker</button>
+          <button onClick={ev => callbackSetReplayBlockerType(replayBlockerType == null ? 'nsl' : null)} className={replayBlockerType == null ? 'active' : ''}>Plain</button>
         </div>
       </div>
       <div className="cols">
@@ -123,6 +126,7 @@ function GeneralBox(data) {
 function ControlPanel({appState, appInterface, className = ''}) {
   const {
     setTournamentName,
+    setReplayBlockerType,
     setMapName,
     setKnownMaps,
     setDebugging,
@@ -169,6 +173,8 @@ function ControlPanel({appState, appInterface, className = ''}) {
           knownMaps={appState.knownMaps}
           visibility={appState.visibility}
           isDebugging={appState.isDebugging}
+          replayBlockerType={appState.replayBlockerType}
+          callbackSetReplayBlockerType={setReplayBlockerType}
           callbackToggleReplayBlocker={callbackToggleReplayBlocker}
           callbackToggleScoreboard={callbackToggleScoreboard}
           callbackRemoveMap={callbackRemoveMap}
