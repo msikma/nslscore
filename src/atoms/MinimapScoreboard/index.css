@@ -137,6 +137,9 @@
 .MinimapScoreboard .scoreboard .player span {
   position: absolute;
   font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 123px;
 }
 .MinimapScoreboard .scoreboard .player.a span {
   left: 6px;
