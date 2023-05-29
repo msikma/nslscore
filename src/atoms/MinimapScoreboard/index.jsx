@@ -19,7 +19,7 @@ function MinimapScoreboard({appState, isVisible, className = ''}) {
         <div className="inner">
           <div className="title">
             <span className="tournament">{d(appState.tournamentName)}</span>
-            <span className="match">Match {d(Math.max(matchNumber, 1), 1)}</span>
+            <span className="match">Game {d(Math.max(matchNumber, 1), 1)}</span>
             <span className="map">{d(appState.mapName)}</span>
           </div>
           <div className="scoreboard best-of">
