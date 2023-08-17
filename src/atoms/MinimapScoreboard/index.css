@@ -90,7 +90,7 @@
   align-self: center;
 }
 .MinimapScoreboard .title .tournament {
-
+  text-transform: none;
 }
 .MinimapScoreboard .title .match,
 .MinimapScoreboard .title .map {
