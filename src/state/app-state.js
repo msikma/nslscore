@@ -53,7 +53,7 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
       replayBlockerType: null,
       isDebugging: false,
       mapName: 'Map name',
-      knownMaps: ['Retro', 'Paradiso', 'Neverland', 'Sand Storm', 'Tempest', 'Heartbreak Ridge', '76', 'Dark Origin', 'Lights Out', 'Rush Hour Neo'],
+      knownMaps: ['Midnight Sun', 'Nightshade', 'Desert Rose', 'Radiance', 'Stargazer', 'Urban Jungle', 'Tempest'],
       tournamentName: 'Chat StarLAN',
       __setInitialValues: true
     })
@@ -83,7 +83,6 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
       },
       isDebugging: true,
       mapName: 'Retro',
-      knownMaps: ['Retro', 'Paradiso', 'Neverland', 'Sand Storm', 'Tempest', 'Heartbreak Ridge', '76', 'Dark Origin', 'Lights Out', 'Rush Hour Neo'],
       tournamentName: 'Chat StarLAN',
       __setDebugValues: true
     })
