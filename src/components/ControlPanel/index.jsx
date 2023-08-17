@@ -70,6 +70,7 @@ function GeneralBox(data) {
     callbackSetReplayBlockerType,
     callbackToggleReplayBlocker,
     callbackToggleScoreboard,
+    callbackToggleScoreboardBackground,
     callbackTournamentName
   } = data
   return (
@@ -106,6 +107,7 @@ function GeneralBox(data) {
         <div className="LabelBox top">
           <label>Interface</label>
           <button onClick={callbackToggleScoreboard} className={visibility.scoreboard ? 'active' : ''}>Toggle scoreboard</button>
+          <button onClick={callbackToggleScoreboardBackground} className={visibility.scoreboardBackground ? 'active' : ''}>BG</button>
         </div>
         <div className="LabelBox top">
           <button onClick={callbackToggleReplayBlocker} className={visibility.replayBlocker ? 'active' : ''}>Toggle replay blocker</button>
@@ -145,6 +147,7 @@ function ControlPanel({appState, appInterface, className = ''}) {
   const callbackRemoveMap = mapName => setKnownMaps([...new Set([...appState.knownMaps.filter(item => item !== mapName)])])
   const callbackToggleReplayBlocker = () => setVisibility('replayBlocker')(!appState.visibility.replayBlocker)
   const callbackToggleScoreboard = () => setVisibility('scoreboard')(!appState.visibility.scoreboard)
+  const callbackToggleScoreboardBackground = () => setVisibility('scoreboardBackground')(!appState.visibility.scoreboardBackground)
   const players = ['A', 'B']
   return (
     <div className={`ControlPanel ${className ?? ''}`}>
@@ -177,6 +180,7 @@ function ControlPanel({appState, appInterface, className = ''}) {
           callbackSetReplayBlockerType={setReplayBlockerType}
           callbackToggleReplayBlocker={callbackToggleReplayBlocker}
           callbackToggleScoreboard={callbackToggleScoreboard}
+          callbackToggleScoreboardBackground={callbackToggleScoreboardBackground}
           callbackRemoveMap={callbackRemoveMap}
           callbackAddMap={_ => callbackAddMap(appState.mapName)}
           callbackDebugging={_ => setDebugging(!appState.isDebugging)}

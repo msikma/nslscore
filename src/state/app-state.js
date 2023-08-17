@@ -21,6 +21,7 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
     },
     visibility: {
       scoreboard: true,
+      scoreboardBackground: true,
       replayBlocker: false
     },
     replayBlockerType: null,
@@ -46,6 +47,7 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
       },
       visibility: {
         scoreboard: true,
+        scoreboardBackground: true,
         replayBlocker: true
       },
       replayBlockerType: 'nsl',
@@ -76,6 +78,7 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
       },
       visibility: {
         scoreboard: true,
+        scoreboardBackground: true,
         replayBlocker: true
       },
       isDebugging: true,

@@ -13,8 +13,10 @@ function MinimapScoreboard({appState, isVisible, className = ''}) {
   const useTeams = ![appState.playerA.team, appState.playerB.team].every(n => n === '')
   return (
     <div className={`MinimapScoreboard style-nsl6 ${useTeams ? 'use-teams' : 'no-teams'} ${!isVisible ? 'isHidden' : ''} ${className}`}>
-      <img className="backdrop teams" src={backdropTeams} width="644" height="252" />
-      <img className="backdrop no-teams" src={backdropNoTeams} width="644" height="222" />
+      {appState.visibility.scoreboardBackground ? <>
+        <img className="backdrop teams" src={backdropTeams} width="644" height="252" />
+        <img className="backdrop no-teams" src={backdropNoTeams} width="644" height="222" />
+      </> : null}
       <div className="positioner">
         <div className="inner">
           <div className="title">
