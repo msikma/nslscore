@@ -21,7 +21,7 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
     },
     visibility: {
       scoreboard: true,
-      scoreboardBackground: true,
+      scoreboardBackground: false,
       replayBlocker: false
     },
     replayBlockerType: null,
@@ -38,23 +38,23 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
       playerA: {
         ...appState.playerA,
         name: 'Player A',
-        team: 'Team A',
+        team: '',
       },
       playerB: {
         ...appState.playerB,
         name: 'Player B',
-        team: 'Team B'
+        team: ''
       },
       visibility: {
         scoreboard: true,
-        scoreboardBackground: true,
+        scoreboardBackground: false,
         replayBlocker: true
       },
-      replayBlockerType: 'nsl',
+      replayBlockerType: null,
       isDebugging: false,
       mapName: 'Map name',
       knownMaps: ['Retro', 'Paradiso', 'Neverland', 'Sand Storm', 'Tempest', 'Heartbreak Ridge', '76', 'Dark Origin', 'Lights Out', 'Rush Hour Neo'],
-      tournamentName: 'NSL Season 6',
+      tournamentName: 'Chat StarLAN',
       __setInitialValues: true
     })
   }
@@ -84,7 +84,7 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
       isDebugging: true,
       mapName: 'Retro',
       knownMaps: ['Retro', 'Paradiso', 'Neverland', 'Sand Storm', 'Tempest', 'Heartbreak Ridge', '76', 'Dark Origin', 'Lights Out', 'Rush Hour Neo'],
-      tournamentName: 'NSL Season 6',
+      tournamentName: 'Chat StarLAN',
       __setDebugValues: true
     })
   }
