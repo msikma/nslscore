@@ -4,12 +4,14 @@
 import imgReplayBlocker from './replay-blocker.png'
 import imgReplayBlockerNom from './replay-blocker-nom.png'
 import imgReplayBlockerNsl from './replay-blocker-nsl.png'
+import imgReplayBlockerCpl10 from './replay-blocker-cpl10.png'
 import './index.css'
 
 function ReplayBlocker({isVisible, type = null, className = ''}) {
   const types = {
     'nom': imgReplayBlockerNom,
     'nsl': imgReplayBlockerNsl,
+    'cpl10': imgReplayBlockerCpl10,
     [null]: imgReplayBlocker
   }
   return (

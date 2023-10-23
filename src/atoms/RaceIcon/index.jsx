@@ -2,11 +2,11 @@
 // © MIT License
 
 import './index.css'
-import iconTerran from './Race - Terran.png'
-import iconProtoss from './Race - Protoss.png'
-import iconZerg from './Race - Zerg.png'
-import iconUnknown from './Race - Unknown.png'
-import iconRandom from './Race - Random.png'
+import iconTerran from './terran.png'
+import iconProtoss from './protoss.png'
+import iconZerg from './zerg.png'
+import iconUnknown from './unknown.png'
+import iconRandom from './random.png'
 
 function RaceIcon({raceCode, raceLabel, className = ''}) {
   const matcher = {

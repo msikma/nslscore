@@ -38,6 +38,9 @@
   position: absolute;
   top: 0;
 }
+.MinimapScoreboard.no-teams .positioner {
+  top: 15px;
+}
 .MinimapScoreboard.use-teams .positioner {
   height: 120px;
   top: 0;
@@ -156,6 +159,10 @@
 .MinimapScoreboard .scoreboard .player.condensed span {
   transform: scale(0.8, 1);
 }
+.MinimapScoreboard.no-score .scoreboard .points .a,
+.MinimapScoreboard.no-score .scoreboard .points .b {
+  visibility: hidden;
+}
 .MinimapScoreboard .scoreboard .points {
   flex: 0 1 60px;
   font-size: 28px;
@@ -178,6 +185,17 @@
   display: block;
   left: calc(50% - 9px);
   font-weight: normal !important;
+}
+.MinimapScoreboard .scoreboard .points .score.div::before {
+  content: '-';
+}
+.MinimapScoreboard.no-score .scoreboard .points .score.div {
+  font-size: 1.2rem;
+}
+.MinimapScoreboard.no-score .scoreboard .points .score.div::before {
+  content: 'vs.';
+  position: relative;
+  top: -0.05rem;
 }
 .MinimapScoreboard .scoreboard .points .score.a {
   border-right: 1px solid var(--minimapscoreboard-bg-players);
@@ -214,7 +232,7 @@
 }
 .MinimapScoreboard.no-teams .races {
   position: relative;
-  top: 17px;
+  top: 2px;
 }
 .MinimapScoreboard .races .race {
   font-size: 21px;
@@ -338,7 +356,7 @@
   display: none;
 }
 .MinimapScoreboard.style-nsl6 .backdrop.no-teams {
-  top: 15px;
+  top: 30px;
 }
 .MinimapScoreboard.style-nsl6.use-teams .backdrop.teams {
   display: block;

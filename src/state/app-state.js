@@ -24,11 +24,13 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
       scoreboardBackground: true,
       replayBlocker: false
     },
+    useScore: true,
     replayBlockerType: null,
     isDebugging: false,
     mapName: '',
     knownMaps: [],
-    tournamentName: ''
+    tournamentName: '',
+    roundName: ''
   }
   const [appState, setAppState] = useState(initialState)
 
@@ -38,23 +40,25 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
       playerA: {
         ...appState.playerA,
         name: 'Player A',
-        team: 'Team A',
+        team: '',
       },
       playerB: {
         ...appState.playerB,
         name: 'Player B',
-        team: 'Team B'
+        team: ''
       },
       visibility: {
         scoreboard: true,
         scoreboardBackground: true,
         replayBlocker: true
       },
-      replayBlockerType: 'nsl',
+      useScore: false,
+      replayBlockerType: null, // 'cpl10'
       isDebugging: false,
-      mapName: 'Map name',
-      knownMaps: ['Retro', 'Paradiso', 'Neverland', 'Sand Storm', 'Tempest', 'Heartbreak Ridge', '76', 'Dark Origin', 'Lights Out', 'Rush Hour Neo'],
-      tournamentName: 'NSL Season 6',
+      mapName: 'Retro',
+      knownMaps: ['Retro', 'Apocalypse', 'Neo Dark Origin', /*'Tempest', 'Vermeer', 'Invader'*/],
+      tournamentName: 'CPL 10',
+      roundName: 'Preseason',
       __setInitialValues: true
     })
   }

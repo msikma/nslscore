@@ -12,7 +12,7 @@ function MinimapScoreboard({appState, isVisible, className = ''}) {
   const matchNumber = Math.max(Number(appState.score.A), 0) + Math.max(Number(appState.score.B), 0) + 1;
   const useTeams = ![appState.playerA.team, appState.playerB.team].every(n => n === '')
   return (
-    <div className={`MinimapScoreboard style-nsl6 ${useTeams ? 'use-teams' : 'no-teams'} ${!isVisible ? 'isHidden' : ''} ${className}`}>
+    <div className={`MinimapScoreboard style-nsl6 ${appState.useScore ? 'use-score' : 'no-score'} ${useTeams ? 'use-teams' : 'no-teams'} ${!isVisible ? 'isHidden' : ''} ${className}`}>
       {appState.visibility.scoreboardBackground ? <>
         <img className="backdrop teams" src={backdropTeams} width="644" height="252" />
         <img className="backdrop no-teams" src={backdropNoTeams} width="644" height="222" />
@@ -21,14 +21,14 @@ function MinimapScoreboard({appState, isVisible, className = ''}) {
         <div className="inner">
           <div className="title">
             <span className="tournament">{d(appState.tournamentName)}</span>
-            <span className="match">Game {d(Math.max(matchNumber, 1), 1)}</span>
+            <span className="match">{appState.useScore ? <>Game {d(Math.max(matchNumber, 1), 1)}</> : appState.roundName}</span>
             <span className="map">{d(appState.mapName)}</span>
           </div>
           <div className="scoreboard best-of">
             <div className="player a"><span>{d(appState.playerA.name)}</span></div>
             <div className="points">
               <div className="score a">{d(appState.score.A, 0)}</div>
-              <div className="score div">{'-'}</div>
+              <div className="score div">{''}</div>
               <div className="score b">{d(appState.score.B, 0)}</div>
             </div>
             <div className="player b"><span>{d(appState.playerB.name)}</span></div>
