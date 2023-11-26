@@ -59,7 +59,7 @@ function GeneralBox(data) {
     label,
     mapName,
     visibility,
-    tournamentName,
+    roundName,
     replayBlockerType,
 
     callbackAddMap,
@@ -71,7 +71,7 @@ function GeneralBox(data) {
     callbackToggleReplayBlocker,
     callbackToggleScoreboard,
     callbackToggleScoreboardBackground,
-    callbackTournamentName
+    callbackRoundName
   } = data
   return (
     <div className={`FormBox`}>
@@ -82,8 +82,8 @@ function GeneralBox(data) {
       </div>
       <div className="rows">
         <div className="LabelBox top tournament-picker">
-          <label>Tournament name</label>
-          <input type="text" value={tournamentName} onChange={callbackTournamentName} />
+          <label>Round name</label>
+          <input type="text" value={roundName} onChange={callbackRoundName} />
         </div>
         <div className="LabelBox top">
           <div className="rows">
@@ -127,7 +127,7 @@ function GeneralBox(data) {
 
 function ControlPanel({appState, appInterface, className = ''}) {
   const {
-    setTournamentName,
+    setRoundName,
     setReplayBlockerType,
     setMapName,
     setKnownMaps,
@@ -171,7 +171,7 @@ function ControlPanel({appState, appInterface, className = ''}) {
       <div className="Row Other">
         <GeneralBox
           label={`Options`}
-          tournamentName={appState.tournamentName}
+          roundName={appState.roundName}
           mapName={appState.mapName}
           knownMaps={appState.knownMaps}
           visibility={appState.visibility}
@@ -186,7 +186,7 @@ function ControlPanel({appState, appInterface, className = ''}) {
           callbackDebugging={_ => setDebugging(!appState.isDebugging)}
           callbackMapName={ev => setMapName(ev.target.value)}
           callbackResetScores={_ => setPlayerScoreZero()}
-          callbackTournamentName={ev => setTournamentName(ev.target.value)}
+          callbackRoundName={ev => setRoundName(ev.target.value)}
         />
       </div>
     </div>

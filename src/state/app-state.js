@@ -108,6 +108,13 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
     })
   }
 
+  const setRoundName = name => {
+    setAppState({
+      ...appState,
+      roundName: name
+    })
+  }
+
   const setMapName = name => {
     setAppState({
       ...appState,
@@ -202,6 +209,7 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
       setInitialData,
       setDebugData,
       setTournamentName,
+      setRoundName,
       setPlayerScoreZero,
       setMapName,
       setKnownMaps,
