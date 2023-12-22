@@ -61,6 +61,7 @@ function GeneralBox(data) {
     visibility,
     roundName,
     replayBlockerType,
+    useScore,
 
     callbackAddMap,
     callbackDebugging,
@@ -71,7 +72,8 @@ function GeneralBox(data) {
     callbackToggleReplayBlocker,
     callbackToggleScoreboard,
     callbackToggleScoreboardBackground,
-    callbackRoundName
+    callbackRoundName,
+    callbackUseScore
   } = data
   return (
     <div className={`FormBox`}>
@@ -117,8 +119,9 @@ function GeneralBox(data) {
       <div className="cols">
         <div className="LabelBox top">
           <label>Etc.</label>
-          <button onClick={callbackResetScores}>Reset matches</button>
-          <button onClick={callbackDebugging} className={isDebugging ? 'active' : ''}>Toggle debug</button>
+          <button onClick={callbackResetScores}>Reset</button>
+          <button onClick={callbackDebugging} className={isDebugging ? 'active' : ''}>Debug</button>
+          <button onClick={callbackUseScore} className={useScore ? 'active' : ''}>Score</button>
         </div>
       </div>
     </div>
@@ -132,6 +135,7 @@ function ControlPanel({appState, appInterface, className = ''}) {
     setMapName,
     setKnownMaps,
     setDebugging,
+    setUseScore,
     setVisibility,
     setPlayerName,
     setPlayerTeam,
@@ -177,6 +181,7 @@ function ControlPanel({appState, appInterface, className = ''}) {
           visibility={appState.visibility}
           isDebugging={appState.isDebugging}
           replayBlockerType={appState.replayBlockerType}
+          useScore={appState.useScore}
           callbackSetReplayBlockerType={setReplayBlockerType}
           callbackToggleReplayBlocker={callbackToggleReplayBlocker}
           callbackToggleScoreboard={callbackToggleScoreboard}
@@ -187,6 +192,7 @@ function ControlPanel({appState, appInterface, className = ''}) {
           callbackMapName={ev => setMapName(ev.target.value)}
           callbackResetScores={_ => setPlayerScoreZero()}
           callbackRoundName={ev => setRoundName(ev.target.value)}
+          callbackUseScore={_ => setUseScore(!appState.useScore)}
         />
       </div>
     </div>

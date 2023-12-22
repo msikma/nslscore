@@ -50,7 +50,7 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
       visibility: {
         scoreboard: true,
         scoreboardBackground: true,
-        replayBlocker: true
+        replayBlocker: false
       },
       useScore: true,
       replayBlockerType: null, // 'cpl10'
@@ -58,7 +58,7 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
       mapName: 'Tempest',
       knownMaps: ['Tempest', 'Vermeer', 'Invader', 'Retro', 'Apocalypse', 'Neo Dark Origin'],
       tournamentName: 'CPL 10',
-      roundName: 'Week 1',
+      roundName: 'King of the Tiers',
       __setInitialValues: true
     })
   }
@@ -186,6 +186,13 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
     })
   }
 
+  const setUseScore = value => {
+    setAppState({
+      ...appState,
+      useScore: value
+    })
+  }
+
   const setVisibility = item => value => {
     setAppState({
       ...appState,
@@ -214,6 +221,7 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
       setMapName,
       setKnownMaps,
       setDebugging,
+      setUseScore,
       setVisibility,
       setReplayBlockerType,
       setPlayerName,
