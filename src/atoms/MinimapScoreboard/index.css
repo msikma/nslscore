@@ -113,9 +113,35 @@
   border-bottom: 1px solid var(--minimapscoreboard-border);
   color: var(--minimapscoreboard-fg-players);
   background-color: var(--minimapscoreboard-bg-players);
+  position: relative;
+}
+.MinimapScoreboard.use-teams.with-bg .scoreboard {
+  top: 4px;
+}
+.MinimapScoreboard.no-teams.with-bg .scoreboard {
+  top: 7px;
 }
 .MinimapScoreboard.use-teams .scoreboard {
   border-bottom: 0;
+}
+.MinimapScoreboard.with-bg .scoreboard .player,
+.MinimapScoreboard.with-bg .scoreboard .points .score,
+.MinimapScoreboard.with-bg .teams .team {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 1px 2px 1px rgba(0, 0, 0, 0.1), -1px 2px 1px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+.MinimapScoreboard.with-bg .scoreboard .points .score.a,
+.MinimapScoreboard.with-bg .scoreboard .points .score.b,
+.MinimapScoreboard.with-bg .scoreboard .points .score.div {
+  color: #333;
+}
+.MinimapScoreboard.with-bg .scoreboard .player.a,
+.MinimapScoreboard.with-bg .teams .team.a {
+  color: #016c40;
+}
+.MinimapScoreboard.with-bg .scoreboard .player.b,
+.MinimapScoreboard.with-bg .teams .team.b {
+  color: #853601;
 }
 .MinimapScoreboard .scoreboard .player.a {
   text-align: left;
@@ -302,7 +328,7 @@
   --minimapscoreboard-fg-teams: black;
   --minimapscoreboard-fg-races: black;
 
-  text-shadow: 0 1px 3px black, 1px 2px 1px black, -1px 2px 1px black;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 1px 2px 1px rgba(0, 0, 0, 0.5), -1px 2px 1px rgba(0, 0, 0, 0.5);
 }
 .MinimapScoreboard.style-black img {
   display: none;
@@ -326,7 +352,7 @@
   --minimapscoreboard-fg-teams: #fff;
   --minimapscoreboard-fg-races: #fff;
 
-  text-shadow: 0 1px 3px black, 1px 2px 1px black, -1px 2px 1px black;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 1px 2px 1px rgba(0, 0, 0, 0.5), -1px 2px 1px rgba(0, 0, 0, 0.5);
 }
 .MinimapScoreboard.style-nsl6 .backdrop {
   position: absolute;

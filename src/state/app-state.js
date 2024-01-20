@@ -47,7 +47,7 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
       },
       visibility: {
         scoreboard: true,
-        scoreboardBackground: false,
+        scoreboardBackground: true,
         replayBlocker: true
       },
       replayBlockerType: null,
