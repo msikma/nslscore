@@ -22,7 +22,7 @@
   border: 1px solid rgba(0, 0, 0, 0.5);
   color: rgba(0, 0, 0, 0.6);
   font-size: 1em;
-  padding: 0.2em 0.5em;
+  padding: 0.2em 0.3em;
 }
 .ControlPanel .container {
   display: flex;

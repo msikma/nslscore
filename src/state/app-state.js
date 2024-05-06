@@ -50,11 +50,11 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
         scoreboardBackground: true,
         replayBlocker: true
       },
-      replayBlockerType: 'nsl',
+      replayBlockerType: null,
       isDebugging: false,
       mapName: 'Map name',
-      knownMaps: ['Retro', 'Paradiso', 'Neverland', 'Sand Storm', 'Tempest', 'Heartbreak Ridge', '76', 'Dark Origin', 'Lights Out', 'Rush Hour Neo'],
-      tournamentName: 'NSL Season 6',
+      knownMaps: ['Endurance', 'Aquamarine', 'Terraform', 'Odd Eye', 'Augustgrad', 'Neo Jungle Story', 'High Noon', 'Struggle', 'Typology', 'Diamondback'],
+      tournamentName: 'NSL Season 7',
       __setInitialValues: true
     })
   }
