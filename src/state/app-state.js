@@ -53,7 +53,7 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
       replayBlockerType: null,
       isDebugging: false,
       mapName: 'Map name',
-      knownMaps: ['Midnight Sun', 'Nightshade', 'Desert Rose', 'Radiance', 'Stargazer', 'Urban Jungle', 'Tempest'],
+      knownMaps: ['Butter', 'Neo Dark Origin', 'Neo Sylphid', 'Citadel', 'Radeon', 'Retro', 'Vermeer'],
       tournamentName: 'Chat StarLAN',
       __setInitialValues: true
     })
