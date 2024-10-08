@@ -113,7 +113,7 @@ function GeneralBox(data) {
         </div>
         <div className="LabelBox top">
           <button onClick={callbackToggleReplayBlocker} className={visibility.replayBlocker ? 'active' : ''}>Toggle replay blocker</button>
-          <button onClick={ev => callbackSetReplayBlockerType(replayBlockerType == null ? 'cpl10' : null)} className={replayBlockerType == null ? 'active' : ''}>Plain</button>
+          <button onClick={ev => callbackSetReplayBlockerType(replayBlockerType == null ? 'cpl11' : null)} className={replayBlockerType == null ? 'active' : ''}>Plain</button>
         </div>
       </div>
       <div className="cols">

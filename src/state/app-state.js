@@ -53,12 +53,12 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
         replayBlocker: false
       },
       useScore: true,
-      replayBlockerType: null, // 'cpl10'
+      replayBlockerType: null, // 'cpl11'
       isDebugging: false,
-      mapName: 'Tempest',
-      knownMaps: ['Tempest', 'Vermeer', 'Invader', 'Retro', 'Apocalypse', 'Neo Dark Origin'],
-      tournamentName: 'CPL 10',
-      roundName: 'King of the Tiers',
+      mapName: 'Retro',
+      knownMaps: ['Retro', 'NDO', 'Apocalypse'],
+      tournamentName: 'CPL 11',
+      roundName: 'Preseason Week 1',
       __setInitialValues: true
     })
   }
