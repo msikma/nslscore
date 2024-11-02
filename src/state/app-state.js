@@ -53,8 +53,9 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
       replayBlockerType: null,
       isDebugging: false,
       mapName: 'Map name',
-      knownMaps: ["Stargazer", "Urban Jungle", "Tempest", "Desert Rose", "Midnight Sun", "Nightshade", "Radiance"],
-      tournamentName: 'Chat StarLAN',
+      //knownMaps: ["Stargazer", "Urban Jungle", "Tempest", "Desert Rose", "Midnight Sun", "Nightshade", "Radiance"],
+      knownMaps: ["Urban Jungle", "Neo Dark Origin", "Neo Sylphid", "Citadel", "Radeon", "Retro", "Vermeer"],
+      tournamentName: 'CSLPRO',
       __setInitialValues: true
     })
   }
