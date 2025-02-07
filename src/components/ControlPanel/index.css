@@ -113,6 +113,15 @@
   display: flex;
   justify-content: left;
 }
+.tournament-name {
+  position: absolute !important;
+  top: 0;
+  left: 430px;
+  z-index: 500;
+}
+.tournament-name input {
+  width: 6.5em;
+}
 .tournament-picker {
   position: absolute !important;
   top: 0;

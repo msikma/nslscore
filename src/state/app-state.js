@@ -55,10 +55,10 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
       useScore: true,
       replayBlockerType: null, // 'cpl11'
       isDebugging: false,
-      mapName: 'Retro',
-      knownMaps: ['Retro', 'NDO', 'Apocalypse'],
+      mapName: 'Butter',
+      knownMaps: ['Butter', 'Eclipse', 'Dominator', 'Deja Vu', 'Radeon', 'Vermeer'],
       tournamentName: 'CPL 11',
-      roundName: 'Preseason Week 1',
+      roundName: 'Quarter-finals',
       __setInitialValues: true
     })
   }

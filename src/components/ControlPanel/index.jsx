@@ -20,7 +20,7 @@ function PlayerBox({label, name, team, race, score, callbackName, callbackTeam, 
         <label>Race</label>
         <div className="container">
           {races.map((raceGroup, n) => (
-            <div>
+            <div key={n}>
               {
                 raceGroup.map((raceLetter, m) => (
                   <button
@@ -60,6 +60,7 @@ function GeneralBox(data) {
     mapName,
     visibility,
     roundName,
+    tournamentName,
     replayBlockerType,
     useScore,
 
@@ -68,6 +69,7 @@ function GeneralBox(data) {
     callbackMapName,
     callbackRemoveMap,
     callbackResetScores,
+    callbackTournamentName,
     callbackSetReplayBlockerType,
     callbackToggleReplayBlocker,
     callbackToggleScoreboard,
@@ -83,6 +85,10 @@ function GeneralBox(data) {
         </div>
       </div>
       <div className="rows">
+        <div className="LabelBox top tournament-name">
+          <label>Tournament</label>
+          <input type="text" value={tournamentName} onChange={callbackTournamentName} />
+        </div>
         <div className="LabelBox top tournament-picker">
           <label>Round name</label>
           <input type="text" value={roundName} onChange={callbackRoundName} />
@@ -131,6 +137,7 @@ function GeneralBox(data) {
 function ControlPanel({appState, appInterface, className = ''}) {
   const {
     setRoundName,
+    setTournamentName,
     setReplayBlockerType,
     setMapName,
     setKnownMaps,
@@ -177,6 +184,7 @@ function ControlPanel({appState, appInterface, className = ''}) {
           label={`Options`}
           roundName={appState.roundName}
           mapName={appState.mapName}
+          tournamentName={appState.tournamentName}
           knownMaps={appState.knownMaps}
           visibility={appState.visibility}
           isDebugging={appState.isDebugging}
@@ -192,6 +200,7 @@ function ControlPanel({appState, appInterface, className = ''}) {
           callbackMapName={ev => setMapName(ev.target.value)}
           callbackResetScores={_ => setPlayerScoreZero()}
           callbackRoundName={ev => setRoundName(ev.target.value)}
+          callbackTournamentName={ev => setTournamentName(ev.target.value)}
           callbackUseScore={_ => setUseScore(!appState.useScore)}
         />
       </div>
