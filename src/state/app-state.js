@@ -27,6 +27,7 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
     replayBlockerType: null,
     isDebugging: false,
     mapName: '',
+    firstTo: '',
     knownMaps: [],
     tournamentName: ''
   }
@@ -38,23 +39,24 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
       playerA: {
         ...appState.playerA,
         name: 'Player A',
-        team: 'Team A',
+        team: '',
       },
       playerB: {
         ...appState.playerB,
         name: 'Player B',
-        team: 'Team B'
+        team: ''
       },
       visibility: {
         scoreboard: true,
         scoreboardBackground: true,
-        replayBlocker: true
+        replayBlocker: false
       },
       replayBlockerType: null,
       isDebugging: false,
       mapName: 'Map name',
+      firstTo: '2',
       knownMaps: ['Endurance', 'Aquamarine', 'Terraform', 'Odd Eye', 'Augustgrad', 'Neo Jungle Story', 'High Noon', 'Struggle', 'Typology', 'Diamondback'],
-      tournamentName: 'NSL Season 7',
+      tournamentName: 'W. Finals',
       __setInitialValues: true
     })
   }
@@ -79,10 +81,11 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
       visibility: {
         scoreboard: true,
         scoreboardBackground: true,
-        replayBlocker: true
+        replayBlocker: false
       },
       isDebugging: true,
       mapName: 'Retro',
+      firstTo: '3',
       knownMaps: ['Retro', 'Paradiso', 'Neverland', 'Sand Storm', 'Tempest', 'Heartbreak Ridge', '76', 'Dark Origin', 'Lights Out', 'Rush Hour Neo'],
       tournamentName: 'NSL Season 6',
       __setDebugValues: true
@@ -108,6 +111,13 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
     setAppState({
       ...appState,
       mapName: name
+    })
+  }
+
+  const setFirstTo = ft => {
+    setAppState({
+      ...appState,
+      firstTo: ft
     })
   }
 
@@ -200,6 +210,7 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
       setTournamentName,
       setPlayerScoreZero,
       setMapName,
+      setFirstTo,
       setKnownMaps,
       setDebugging,
       setVisibility,

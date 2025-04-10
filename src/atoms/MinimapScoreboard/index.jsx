@@ -2,27 +2,25 @@
 // © MIT License
 
 import RaceIcon from '../RaceIcon'
-import backdropTeams from './minimap-teams.png'
-import backdropNoTeams from './minimap-no-teams.png'
+import backdropFrame from './frame.png'
 import './index.css'
 
 const d = (val, defaultVal = '—') => `${String(val).trim() ? val : defaultVal}`
 
 function MinimapScoreboard({appState, isVisible, className = ''}) {
   const matchNumber = Math.max(Number(appState.score.A), 0) + Math.max(Number(appState.score.B), 0) + 1;
-  const useTeams = ![appState.playerA.team, appState.playerB.team].every(n => n === '')
+  const useTeams = false
   return (
     <div className={`MinimapScoreboard style-nsl6 ${useTeams ? 'use-teams' : 'no-teams'} ${!isVisible ? 'isHidden' : ''} ${className}`}>
       {appState.visibility.scoreboardBackground ? <>
-        <img className="backdrop teams" src={backdropTeams} width="644" height="252" />
-        <img className="backdrop no-teams" src={backdropNoTeams} width="644" height="222" />
+        <img className="frame" src={backdropFrame} width="1920" height="1080" />
       </> : null}
       <div className="positioner">
         <div className="inner">
           <div className="title">
             <span className="tournament">{d(appState.tournamentName)}</span>
             <span className="match">Game {d(Math.max(matchNumber, 1), 1)}</span>
-            <span className="map">{d(appState.mapName)}</span>
+            <span className="best-of">First to {d(appState.firstTo)}</span>
           </div>
           <div className="scoreboard best-of">
             <div className="player a"><span>{d(appState.playerA.name)}</span></div>

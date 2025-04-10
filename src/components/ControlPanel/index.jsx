@@ -20,7 +20,7 @@ function PlayerBox({label, name, team, race, score, callbackName, callbackTeam, 
         <label>Race</label>
         <div className="container">
           {races.map((raceGroup, n) => (
-            <div>
+            <div key={n}>
               {
                 raceGroup.map((raceLetter, m) => (
                   <button
@@ -36,7 +36,7 @@ function PlayerBox({label, name, team, race, score, callbackName, callbackTeam, 
           ))}
         </div>
       </div>
-      <div className="LabelBox">
+      <div className="LabelBox TeamSelector">
         <label>Team</label>
         <input type="text" value={team} onChange={callbackTeam} />
       </div>
@@ -58,11 +58,13 @@ function GeneralBox(data) {
     knownMaps,
     label,
     mapName,
+    firstTo,
     visibility,
     tournamentName,
     replayBlockerType,
 
     callbackAddMap,
+    callbackFirstTo,
     callbackDebugging,
     callbackMapName,
     callbackRemoveMap,
@@ -82,23 +84,23 @@ function GeneralBox(data) {
       </div>
       <div className="rows">
         <div className="LabelBox top tournament-picker">
-          <label>Tournament name</label>
+          <label>Round name</label>
           <input type="text" value={tournamentName} onChange={callbackTournamentName} />
         </div>
         <div className="LabelBox top">
           <div className="rows">
             <div>
-              <label>Map</label>
-              <input type="text" value={mapName} onChange={callbackMapName} />
-              <button onClick={callbackAddMap}>💾</button>
-              <button onClick={_ => callbackRemoveMap(mapName)}>❌</button>
+              <label className="static">First to</label>
             </div>
-            <div className="maps">
-              {knownMaps.map(map => (
-                <span className={`mapWrapper ${mapName === map ? 'active' : ''}`} key={`map_${map}`}>
-                  <button className="map" onClick={callbackMapName} value={map}>{map}</button>
+            <div className="maps first-to">
+              {['2', '3'].map(n => (
+                <span className={`mapWrapper ${firstTo === n ? 'active' : ''}`} key={`n_${n}`}>
+                  <button className="map" onClick={callbackFirstTo} value={n}>{n}</button>
                 </span>
               ))}
+              <span className={`mapWrapper`}>
+                <input type="text" value={firstTo} onChange={callbackFirstTo} />
+              </span>
             </div>
           </div>
         </div>
@@ -108,10 +110,6 @@ function GeneralBox(data) {
           <label>Interface</label>
           <button onClick={callbackToggleScoreboard} className={visibility.scoreboard ? 'active' : ''}>Toggle scoreboard</button>
           <button onClick={callbackToggleScoreboardBackground} className={visibility.scoreboardBackground ? 'active' : ''}>BG</button>
-        </div>
-        <div className="LabelBox top">
-          <button onClick={callbackToggleReplayBlocker} className={visibility.replayBlocker ? 'active' : ''}>Toggle replay blocker</button>
-          <button onClick={ev => callbackSetReplayBlockerType(replayBlockerType == null ? 'nsl' : null)} className={replayBlockerType == null ? 'active' : ''}>Plain</button>
         </div>
       </div>
       <div className="cols">
@@ -133,6 +131,7 @@ function ControlPanel({appState, appInterface, className = ''}) {
     setKnownMaps,
     setDebugging,
     setVisibility,
+    setFirstTo,
     setPlayerName,
     setPlayerTeam,
     setPlayerRace,
@@ -173,6 +172,7 @@ function ControlPanel({appState, appInterface, className = ''}) {
           label={`Options`}
           tournamentName={appState.tournamentName}
           mapName={appState.mapName}
+          firstTo={appState.firstTo}
           knownMaps={appState.knownMaps}
           visibility={appState.visibility}
           isDebugging={appState.isDebugging}
@@ -185,6 +185,7 @@ function ControlPanel({appState, appInterface, className = ''}) {
           callbackAddMap={_ => callbackAddMap(appState.mapName)}
           callbackDebugging={_ => setDebugging(!appState.isDebugging)}
           callbackMapName={ev => setMapName(ev.target.value)}
+          callbackFirstTo={ev => setFirstTo(ev.target.value)}
           callbackResetScores={_ => setPlayerScoreZero()}
           callbackTournamentName={ev => setTournamentName(ev.target.value)}
         />

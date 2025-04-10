@@ -11,7 +11,7 @@
 }
 
 .MinimapScoreboard {
-  --minimapscoreboard-width: 322px;
+  --minimapscoreboard-width: 1600px;
   --minimapscoreboard-border: #7a4b17;
 
   --minimapscoreboard-bg-title: #572b11;
@@ -36,6 +36,7 @@
   width: var(--minimapscoreboard-width);
   height: 92px;
   position: absolute;
+  left: 160px;
   top: 0;
 }
 .MinimapScoreboard.use-teams .positioner {
@@ -90,7 +91,11 @@
   align-self: center;
 }
 .MinimapScoreboard .title .tournament {
-
+  position: absolute;
+  left: 660px;
+  width: 105px;
+  top: 21px;
+  text-align: center;
 }
 .MinimapScoreboard .title .match,
 .MinimapScoreboard .title .map {
@@ -101,6 +106,14 @@
   right: 0;
   text-align: center;
 }
+.MinimapScoreboard .title .best-of {
+  text-transform: uppercase;
+  position: absolute;
+  right: 665px;
+  width: 105px;
+  top: 21px;
+  text-align: center;
+}
 .MinimapScoreboard .title .map {
   text-transform: initial;
   right: 6px;
@@ -109,7 +122,8 @@
   font-family: "Roboto Condensed";
   display: flex;
   font-size: 21px;
-  line-height: 34px;
+  line-height: 50px;
+  padding: 0 18px;
   border-bottom: 1px solid var(--minimapscoreboard-border);
   color: var(--minimapscoreboard-fg-players);
   background-color: var(--minimapscoreboard-bg-players);
@@ -118,16 +132,14 @@
   border-bottom: 0;
 }
 .MinimapScoreboard .scoreboard .player.a {
-  text-align: left;
-  padding-left: 6px;
-  /* I don't understand why but whatever. This fixes the off by 1px error. */
-  padding-right: 2px;
+  padding-left: 10px;
 }
 .MinimapScoreboard .scoreboard .player.b {
-  text-align: right;
-  padding-right: 6px;
+  padding-right: 10px;
 }
 .MinimapScoreboard .scoreboard .player {
+  text-align: center;
+  top: 4px;
   flex: 1 0;
   padding-top: 1px;
   padding-bottom: 1px;
@@ -135,11 +147,10 @@
   position: relative;
 }
 .MinimapScoreboard .scoreboard .player span {
-  position: absolute;
   font-weight: 600;
+  font-size: 45px;
   white-space: nowrap;
-  overflow: hidden;
-  max-width: 123px;
+  text-transform: uppercase;
 }
 .MinimapScoreboard .scoreboard .player.a span {
   left: 6px;
@@ -158,13 +169,17 @@
 }
 .MinimapScoreboard .scoreboard .points {
   flex: 0 1 60px;
+  flex-basis: 850px;
   font-size: 28px;
+  position: relative;
+  top: 2px;
 }
 .MinimapScoreboard .scoreboard .points {
   display: flex;
 }
 .MinimapScoreboard .scoreboard .points .score {
-  flex: 0 0 50%;
+  flex: 0 0 125px;
+  font-size: 49px;
   color: var(--minimapscoreboard-fg-score);
   background-color: var(--minimapscoreboard-bg-score);
   border-top: 1px solid var(--minimapscoreboard-bg-players);
@@ -172,12 +187,12 @@
   text-align: center;
 }
 .MinimapScoreboard .scoreboard .points .score.div {
-  position: absolute;
+  position: static;
   width: 20px;
+  visibility: hidden;
   text-align: center;
-  display: block;
-  left: calc(50% - 9px);
   font-weight: normal !important;
+  flex-basis: 600px;
 }
 .MinimapScoreboard .scoreboard .points .score.a {
   border-right: 1px solid var(--minimapscoreboard-bg-players);
@@ -210,6 +225,7 @@
 }
 .MinimapScoreboard .races {
   display: flex;
+  display: none;
   color: var(--minimapscoreboard-fg-races);
 }
 .MinimapScoreboard.no-teams .races {
@@ -326,7 +342,7 @@
   --minimapscoreboard-fg-teams: #fff;
   --minimapscoreboard-fg-races: #fff;
 
-  text-shadow: 0 1px 3px black, 1px 2px 1px black, -1px 2px 1px black;
+  /*text-shadow: 0 1px 3px black, 1px 2px 1px black, -1px 2px 1px black;*/
 }
 .MinimapScoreboard.style-nsl6 .backdrop {
   position: absolute;
@@ -335,7 +351,10 @@
   width: 322px;
   height: auto;
   z-index: -1;
-  display: none;
+}
+.MinimapScoreboard.style-nsl6 .frame {
+  position: absolute;
+  top: 0;
 }
 .MinimapScoreboard.style-nsl6 .backdrop.no-teams {
   top: 15px;
@@ -343,15 +362,15 @@
 .MinimapScoreboard.style-nsl6.use-teams .backdrop.teams {
   display: block;
 }
-.MinimapScoreboard.style-nsl6.no-teams .backdrop.no-teams {
-  display: block;
-}
 .MinimapScoreboard.style-nsl6 .title {
-  position: relative;
-  top: -1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 .MinimapScoreboard.style-nsl6 .title .match {
   font-weight: bold;
+  display: none;
 }
 .MinimapScoreboard.style-nsl6 .scoreboard .points .score {
   font-weight: bold;

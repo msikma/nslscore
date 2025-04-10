@@ -14,7 +14,7 @@
 }
 .ScoreboardMinimap {
   position: absolute;
-  top: 639px;
+  top: 0;
   bottom: unset;
   left: 0;
 }
