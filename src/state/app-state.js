@@ -202,6 +202,18 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
     })
   }
 
+  const swapPlayers = () => {
+    setAppState({
+      ...appState,
+      playerA: {...appState.playerB},
+      playerB: {...appState.playerA},
+      score: {
+        A: appState.score.B,
+        B: appState.score.A,
+      },
+    })
+  }
+
   return [
     appState,
     {
@@ -218,7 +230,8 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
       setPlayerName,
       setPlayerTeam,
       setPlayerRace,
-      setPlayerScore
+      setPlayerScore,
+      swapPlayers,
     }
   ]
 }

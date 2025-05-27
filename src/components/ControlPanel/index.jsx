@@ -69,6 +69,7 @@ function GeneralBox(data) {
     callbackMapName,
     callbackRemoveMap,
     callbackResetScores,
+    callbackSwapPlayers,
     callbackSetReplayBlockerType,
     callbackToggleReplayBlocker,
     callbackToggleScoreboard,
@@ -116,6 +117,7 @@ function GeneralBox(data) {
         <div className="LabelBox top">
           <label>Etc.</label>
           <button onClick={callbackResetScores}>Reset matches</button>
+          <button onClick={callbackSwapPlayers}>Swap Players</button>
           <button onClick={callbackDebugging} className={isDebugging ? 'active' : ''}>Toggle debug</button>
         </div>
       </div>
@@ -130,6 +132,7 @@ function ControlPanel({appState, appInterface, className = ''}) {
     setMapName,
     setKnownMaps,
     setDebugging,
+    swapPlayers,
     setVisibility,
     setFirstTo,
     setPlayerName,
@@ -187,6 +190,7 @@ function ControlPanel({appState, appInterface, className = ''}) {
           callbackMapName={ev => setMapName(ev.target.value)}
           callbackFirstTo={ev => setFirstTo(ev.target.value)}
           callbackResetScores={_ => setPlayerScoreZero()}
+          callbackSwapPlayers={_ => swapPlayers()}
           callbackTournamentName={ev => setTournamentName(ev.target.value)}
         />
       </div>
