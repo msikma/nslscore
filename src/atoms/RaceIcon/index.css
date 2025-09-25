@@ -12,6 +12,7 @@
 }
 
 .RaceIcon .icon-inner {
+  filter: brightness(1.5);
   position: absolute;
   inset: 0;
   background-size: cover;

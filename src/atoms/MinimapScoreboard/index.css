@@ -133,15 +133,15 @@
 .MinimapScoreboard.with-bg .scoreboard .points .score.a,
 .MinimapScoreboard.with-bg .scoreboard .points .score.b,
 .MinimapScoreboard.with-bg .scoreboard .points .score.div {
-  color: #333;
+  color: white;
 }
 .MinimapScoreboard.with-bg .scoreboard .player.a,
 .MinimapScoreboard.with-bg .teams .team.a {
-  color: #016c40;
+  color: #ffe7d9;
 }
 .MinimapScoreboard.with-bg .scoreboard .player.b,
 .MinimapScoreboard.with-bg .teams .team.b {
-  color: #853601;
+  color: #ffe7d9;
 }
 .MinimapScoreboard .scoreboard .player.a {
   text-align: left;
@@ -353,6 +353,9 @@
   --minimapscoreboard-fg-races: #fff;
 
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 1px 2px 1px rgba(0, 0, 0, 0.5), -1px 2px 1px rgba(0, 0, 0, 0.5);
+}
+.MinimapScoreboard.transparent-bg .backdrop {
+  opacity: 0 !important;
 }
 .MinimapScoreboard.style-nsl6 .backdrop {
   position: absolute;

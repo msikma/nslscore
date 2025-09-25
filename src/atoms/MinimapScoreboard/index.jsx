@@ -12,11 +12,9 @@ function MinimapScoreboard({appState, isVisible, className = ''}) {
   const matchNumber = Math.max(Number(appState.score.A), 0) + Math.max(Number(appState.score.B), 0) + 1;
   const useTeams = ![appState.playerA.team, appState.playerB.team].every(n => n === '')
   return (
-    <div className={`MinimapScoreboard style-nsl6 ${useTeams ? 'use-teams' : 'no-teams'} ${!isVisible ? 'isHidden' : ''} ${className} ${appState.visibility.scoreboardBackground ? 'with-bg' : 'no-bg'}`}>
-      {appState.visibility.scoreboardBackground ? <>
-        <img className="backdrop teams" src={backdropTeams} width="644" height="252" />
-        <img className="backdrop no-teams" src={backdropNoTeams} width="644" height="222" />
-      </> : null}
+    <div className={`MinimapScoreboard style-nsl6 ${useTeams ? 'use-teams' : 'no-teams'} ${!isVisible ? 'isHidden' : ''} ${className} with-bg ${appState.visibility.scoreboardBackground ? '' : 'transparent-bg'}`}>
+      <img className="backdrop teams" src={backdropTeams} width="644" height="252" />
+      <img className="backdrop no-teams" src={backdropNoTeams} width="644" height="222" />
       <div className="positioner">
         <div className="inner">
           <div className="title">

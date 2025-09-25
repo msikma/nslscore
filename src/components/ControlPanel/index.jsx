@@ -38,7 +38,7 @@ function PlayerBox({label, name, team, race, score, callbackName, callbackTeam, 
       </div>
       <div className="LabelBox">
         <label>Team</label>
-        <input type="text" value={team} onChange={callbackTeam} />
+        <input type="text" value={team} onChange={callbackTeam} disabled={true} />
       </div>
       <div className="NumberInput">
         <label>Score</label>
