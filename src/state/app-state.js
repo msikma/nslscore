@@ -25,6 +25,7 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
       replayBlocker: false
     },
     useScore: true,
+    isBo1: true,
     replayBlockerType: null,
     isDebugging: false,
     mapName: '',
@@ -193,6 +194,13 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
     })
   }
 
+  const setIsBo1 = value => {
+    setAppState({
+      ...appState,
+      isBo1: value
+    })
+  }
+
   const setVisibility = item => value => {
     setAppState({
       ...appState,
@@ -222,6 +230,7 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
       setKnownMaps,
       setDebugging,
       setUseScore,
+      setIsBo1,
       setVisibility,
       setReplayBlockerType,
       setPlayerName,

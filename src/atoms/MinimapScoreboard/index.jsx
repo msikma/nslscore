@@ -17,7 +17,7 @@ function MinimapScoreboard({appState, isVisible, className = ''}) {
   const raceA = raceOverlayCodes.includes(appState.playerA.race) ? appState.playerA.race : null
   const raceB = raceOverlayCodes.includes(appState.playerB.race) ? appState.playerB.race : null
   return (
-    <div className={`MinimapScoreboard style-nsl6 ${appState.useScore ? 'use-score' : 'no-score'} ${useTeams ? 'use-teams' : 'no-teams'} ${!isVisible ? 'isHidden' : ''} ${className}`}>
+    <div className={`MinimapScoreboard style-nsl6 ${appState.useScore && !appState.isBo1 ? 'use-score' : 'no-score'} ${useTeams ? 'use-teams' : 'no-teams'} ${!isVisible ? 'isHidden' : ''} ${className}`}>
       {appState.visibility.scoreboardBackground ? <>
         <img className="backdrop teams" src={backdropTeams} width="644" height="252" />
         <img className="backdrop no-teams" src={backdropNoTeams} width="644" height="222" />

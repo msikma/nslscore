@@ -49,7 +49,9 @@
   display: none;
 }
 .MinimapScoreboard.use-teams .inner .teams {
-  display: flex;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 0;
 }
 .MinimapScoreboard .inner {
   position: absolute;
@@ -214,7 +216,9 @@
   line-height: 32px;
 }
 .MinimapScoreboard .teams .team {
-  flex: 1 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .MinimapScoreboard .teams .team.a {
   text-align: left;

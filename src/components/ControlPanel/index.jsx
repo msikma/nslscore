@@ -3,7 +3,7 @@
 
 import './index.css'
 
-function PlayerBox({label, name, team, race, score, callbackName, callbackTeam, callbackRace, callbackScoreMinus, callbackScorePlus}) {
+function PlayerBox({label, name, team, race, score, isBo1, callbackName, callbackTeam, callbackRace, callbackScoreMinus, callbackScorePlus}) {
   const races = [['t', 'p', 'z'], ['unknown', 'random']]
   return (
     <div className={`FormBox PlayerBox race-${race}`}>
@@ -43,9 +43,9 @@ function PlayerBox({label, name, team, race, score, callbackName, callbackTeam, 
       <div className="NumberInput">
         <label>Score</label>
         <div className="container">
-          <button onClick={callbackScoreMinus}>-</button>
-          <input type="text" value={score} onChange={callbackName} />
-          <button onClick={callbackScorePlus}>+</button>
+          <button onClick={callbackScoreMinus} disabled={isBo1}>-</button>
+          <input type="text" value={score} onChange={callbackName} disabled={isBo1} />
+          <button onClick={callbackScorePlus} disabled={isBo1}>+</button>
         </div>
       </div>
     </div>
@@ -63,6 +63,7 @@ function GeneralBox(data) {
     tournamentName,
     replayBlockerType,
     useScore,
+    isBo1,
 
     callbackAddMap,
     callbackDebugging,
@@ -75,7 +76,8 @@ function GeneralBox(data) {
     callbackToggleScoreboard,
     callbackToggleScoreboardBackground,
     callbackRoundName,
-    callbackUseScore
+    callbackUseScore,
+    callbackIsBo1
   } = data
   return (
     <div className={`FormBox`}>
@@ -128,6 +130,7 @@ function GeneralBox(data) {
           <button onClick={callbackResetScores}>Reset</button>
           <button onClick={callbackDebugging} className={isDebugging ? 'active' : ''}>Debug</button>
           <button onClick={callbackUseScore} className={useScore ? 'active' : ''}>Score</button>
+          <button onClick={callbackIsBo1} className={isBo1 ? 'active' : ''}>Is Bo1</button>
         </div>
       </div>
     </div>
@@ -143,6 +146,7 @@ function ControlPanel({appState, appInterface, className = ''}) {
     setKnownMaps,
     setDebugging,
     setUseScore,
+    setIsBo1,
     setVisibility,
     setPlayerName,
     setPlayerTeam,
@@ -171,6 +175,7 @@ function ControlPanel({appState, appInterface, className = ''}) {
             team={appState[`player${playerN}`].team}
             race={appState[`player${playerN}`].race}
             score={appState.score[playerN]}
+            isBo1={appState.isBo1}
             callbackScoreMinus={callbackScore(playerN)(-1)}
             callbackScorePlus={callbackScore(playerN)(1)}
             callbackName={callbackName(playerN)}
@@ -190,6 +195,7 @@ function ControlPanel({appState, appInterface, className = ''}) {
           isDebugging={appState.isDebugging}
           replayBlockerType={appState.replayBlockerType}
           useScore={appState.useScore}
+          isBo1={appState.isBo1}
           callbackSetReplayBlockerType={setReplayBlockerType}
           callbackToggleReplayBlocker={callbackToggleReplayBlocker}
           callbackToggleScoreboard={callbackToggleScoreboard}
@@ -202,6 +208,7 @@ function ControlPanel({appState, appInterface, className = ''}) {
           callbackRoundName={ev => setRoundName(ev.target.value)}
           callbackTournamentName={ev => setTournamentName(ev.target.value)}
           callbackUseScore={_ => setUseScore(!appState.useScore)}
+          callbackIsBo1={_ => setIsBo1(!appState.isBo1)}
         />
       </div>
     </div>
