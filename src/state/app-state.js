@@ -53,12 +53,12 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
         replayBlocker: false
       },
       useScore: true,
-      replayBlockerType: null, // 'cpl11'
+      replayBlockerType: null, // 'cpl13'
       isDebugging: false,
-      mapName: 'Butter',
-      knownMaps: ['Butter', 'Eclipse', 'Dominator', 'Deja Vu', 'Radeon', 'Vermeer'],
-      tournamentName: 'CPL 11',
-      roundName: 'Quarter-finals',
+      mapName: 'KnockOut',
+      knownMaps: ['KnockOut', 'Attitude', 'Radeon', /*'Colorless Fate', 'Octagon', 'Dominator'*/],
+      tournamentName: 'CPL 13',
+      roundName: 'Preseason W1',
       __setInitialValues: true
     })
   }

@@ -356,7 +356,6 @@
   display: none;
 }
 .MinimapScoreboard.style-nsl6 .backdrop.no-teams {
-  top: 30px;
 }
 .MinimapScoreboard.style-nsl6.use-teams .backdrop.teams {
   display: block;
