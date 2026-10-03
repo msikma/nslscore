@@ -4,18 +4,32 @@
 import RaceIcon from '../RaceIcon'
 import backdropTeams from './minimap-teams.png'
 import backdropNoTeams from './minimap-no-teams.png'
+import raceBackdrops from './race-backdrops'
 import './index.css'
+
+const raceOverlayCodes = ['t', 'p', 'z', 'random']
 
 const d = (val, defaultVal = '—') => `${String(val).trim() ? val : defaultVal}`
 
 function MinimapScoreboard({appState, isVisible, className = ''}) {
   const matchNumber = Math.max(Number(appState.score.A), 0) + Math.max(Number(appState.score.B), 0) + 1;
   const useTeams = ![appState.playerA.team, appState.playerB.team].every(n => n === '')
+  const raceA = raceOverlayCodes.includes(appState.playerA.race) ? appState.playerA.race : null
+  const raceB = raceOverlayCodes.includes(appState.playerB.race) ? appState.playerB.race : null
   return (
     <div className={`MinimapScoreboard style-nsl6 ${appState.useScore ? 'use-score' : 'no-score'} ${useTeams ? 'use-teams' : 'no-teams'} ${!isVisible ? 'isHidden' : ''} ${className}`}>
       {appState.visibility.scoreboardBackground ? <>
         <img className="backdrop teams" src={backdropTeams} width="644" height="252" />
         <img className="backdrop no-teams" src={backdropNoTeams} width="644" height="222" />
+        {['a', 'b'].map(side => raceOverlayCodes.map(race => ['teams', 'no-teams'].map(variant => (
+          <img
+            key={`${side}-${race}-${variant}`}
+            className={`backdrop race-overlay ${variant} side-${side} ${(side === 'a' ? raceA : raceB) === race ? 'is-active' : ''}`}
+            src={raceBackdrops[variant][race]}
+            width="644"
+            height="252"
+          />
+        ))))}
       </> : null}
       <div className="positioner">
         <div className="inner">

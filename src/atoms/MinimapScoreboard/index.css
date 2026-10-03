@@ -363,6 +363,20 @@
 .MinimapScoreboard.style-nsl6.no-teams .backdrop.no-teams {
   display: block;
 }
+.MinimapScoreboard.style-nsl6 .backdrop.race-overlay:not(.is-active) {
+  display: none !important;
+}
+.MinimapScoreboard.style-nsl6.use-teams .backdrop.race-overlay.teams.is-active,
+.MinimapScoreboard.style-nsl6.no-teams .backdrop.race-overlay.no-teams.is-active {
+  display: block;
+}
+/* The overlays contain both blocks; each side only shows its own half. */
+.MinimapScoreboard.style-nsl6 .backdrop.race-overlay.side-a {
+  clip-path: inset(0 50% 0 0);
+}
+.MinimapScoreboard.style-nsl6 .backdrop.race-overlay.side-b {
+  clip-path: inset(0 0 0 50%);
+}
 .MinimapScoreboard.style-nsl6 .title {
   position: relative;
   top: -1px;
