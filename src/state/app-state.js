@@ -56,7 +56,8 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
       //knownMaps: ["Stargazer", "Urban Jungle", "Tempest", "Desert Rose", "Midnight Sun", "Nightshade", "Radiance"],
       //knownMaps: ["Urban Jungle", "Neo Dark Origin", "Neo Sylphid", "Citadel", "Radeon", "Retro", "Vermeer"],
       //knownMaps: ["Eclipse", "Litmus", "Dominator", "Fighting Spirit", "KnockOut", "Radeon", "Tempest"],
-      knownMaps: ['Litmus', 'Match Point', 'Neo Sylphid', 'Andromeda', 'Attitude', 'Generator', 'Octagon'],
+      //knownMaps: ['Litmus', 'Match Point', 'Neo Sylphid', 'Andromeda', 'Attitude', 'Generator', 'Octagon'],
+      knownMaps: ['Odyssey', 'Neo Sylphid', 'Tau Cross', 'Attitude', 'Backrooms', 'Knockout', 'Octagon'],
       tournamentName: 'IPSL',
       __setInitialValues: true
     })
