@@ -51,15 +51,15 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
       visibility: {
         scoreboard: true,
         scoreboardBackground: true,
-        replayBlocker: false
+        replayBlocker: true
       },
       useScore: true,
-      replayBlockerType: null, // 'cpl13'
+      replayBlockerType: 'cpl13', // 'cpl13'
       isDebugging: false,
-      mapName: 'KnockOut',
+      mapName: 'Attitude',
       knownMaps: ['KnockOut', 'Attitude', 'Radeon', /*'Colorless Fate', 'Octagon', 'Dominator'*/],
       tournamentName: 'CPL 13',
-      roundName: 'Preseason W1',
+      roundName: 'Preseason W2',
       __setInitialValues: true
     })
   }
