@@ -55,8 +55,9 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
       mapName: 'Map name',
       //knownMaps: ["Stargazer", "Urban Jungle", "Tempest", "Desert Rose", "Midnight Sun", "Nightshade", "Radiance"],
       //knownMaps: ["Urban Jungle", "Neo Dark Origin", "Neo Sylphid", "Citadel", "Radeon", "Retro", "Vermeer"],
-      knownMaps: ["Eclipse", "Litmus", "Dominator", "Fighting Spirit", "KnockOut", "Radeon", "Tempest"],
-      tournamentName: 'CSLPRO',
+      //knownMaps: ["Eclipse", "Litmus", "Dominator", "Fighting Spirit", "KnockOut", "Radeon", "Tempest"],
+      knownMaps: ["Urban Jungle", "Reliquary", "Tempest", "Nightshade", "Midnight Sun", "Radiance", "Generator"],
+      tournamentName: 'CSL #',
       __setInitialValues: true
     })
   }
