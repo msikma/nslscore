@@ -56,10 +56,10 @@ export function useScoreboardState(setInitialValues = true, setDebugValues = fal
       useScore: true,
       replayBlockerType: 'cpl13', // 'cpl13'
       isDebugging: false,
-      mapName: 'Attitude',
+      mapName: 'Radeon',
       knownMaps: ['KnockOut', 'Attitude', 'Radeon', /*'Colorless Fate', 'Octagon', 'Dominator'*/],
       tournamentName: 'CPL 13',
-      roundName: 'Preseason W2',
+      roundName: 'Preseason W3',
       __setInitialValues: true
     })
   }
