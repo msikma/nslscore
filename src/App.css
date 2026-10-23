@@ -28,3 +28,14 @@
   right: calc(100% - 1920px);
   bottom: unset;
 }
+
+/* If the OBS Browser Source is set to 3840x3080 (twice the default 1920x1540), enable 4K mode */
+@media (min-width: 3840px) and (min-height: 3080px) {
+  #root {
+    position: relative;
+    width: 1920px;
+    height: 1540px;
+    transform: scale(2);
+    transform-origin: 0 0;
+  }
+}
